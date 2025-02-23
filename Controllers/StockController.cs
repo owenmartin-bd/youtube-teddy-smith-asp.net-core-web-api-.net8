@@ -7,6 +7,7 @@ using ASP.NET_Core_Web_API_.NET_8.Dtos.Stock;
 using ASP.NET_Core_Web_API_.NET_8.Helpers;
 using ASP.NET_Core_Web_API_.NET_8.Interfaces;
 using ASP.NET_Core_Web_API_.NET_8.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,7 @@ namespace ASP.NET_Core_Web_API_.NET_8.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
             if(!ModelState.IsValid)
