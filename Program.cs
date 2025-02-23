@@ -2,6 +2,7 @@ using ASP.NET_Core_Web_API_.NET_8.Data;
 using ASP.NET_Core_Web_API_.NET_8.Interfaces;
 using ASP.NET_Core_Web_API_.NET_8.Models;
 using ASP.NET_Core_Web_API_.NET_8.Repository;
+using ASP.NET_Core_Web_API_.NET_8.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -57,7 +58,8 @@ builder.Services.AddAuthentication(options => {
 });
 
 builder.Services.AddScoped<IStockRepository, StockRepository>(); 
-builder.Services.AddScoped<ICommentRepository, CommentRepository>(); 
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
